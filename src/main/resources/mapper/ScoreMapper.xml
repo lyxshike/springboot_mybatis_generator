@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.orangesay.mapper.ScoreMapper">
+  <resultMap id="BaseResultMap" type="com.orangesay.entity.Score">
+    <result column="user_name" jdbcType="CHAR" property="userName" />
+    <result column="user_subject" jdbcType="CHAR" property="userSubject" />
+    <result column="user_score" jdbcType="INTEGER" property="userScore" />
+  </resultMap>
+  <insert id="insert" parameterType="com.orangesay.entity.Score">
+    insert into score (user_name, user_subject, user_score
+      )
+    values (#{userName,jdbcType=CHAR}, #{userSubject,jdbcType=CHAR}, #{userScore,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.orangesay.entity.Score">
+    insert into score
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userSubject != null">
+        user_subject,
+      </if>
+      <if test="userScore != null">
+        user_score,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userName != null">
+        #{userName,jdbcType=CHAR},
+      </if>
+      <if test="userSubject != null">
+        #{userSubject,jdbcType=CHAR},
+      </if>
+      <if test="userScore != null">
+        #{userScore,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
