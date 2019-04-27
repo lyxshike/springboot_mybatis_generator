@@ -78,5 +78,4 @@
     </context>
 </generatorConfiguration>
 
-## 3.右键点击项目名--》Run As-->Maven build-->在Goals中添加mybatis-generator:generate，
-      点击apply然后run。运行完后刷新项目，就有自动生成的代码了。			
+## 3.右键点击项目名--》Run As-->Maven build-->在Goals中添加mybatis-generator:generate，点击apply然后run。运行完后刷新项目，就有自动生成的代码了。			
